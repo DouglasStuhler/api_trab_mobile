@@ -11,5 +11,5 @@ gradle/
 .kotlin/
 build/
 .gradle/
-src/test
-src/main/resourcess
+src/test/
+src/main/resources/
