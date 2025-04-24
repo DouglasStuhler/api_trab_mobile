@@ -1,0 +1,15 @@
+build.gradle.kts
+gradle.properties
+gradlew
+gradlew.bat
+local.properties
+README.md
+settings.gradle.kts
+
+gradle/
+.idea/
+.kotlin/
+build/
+.gradle/
+src/test
+src/main/resourcess
