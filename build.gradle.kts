@@ -5,6 +5,12 @@ plugins {
     alias(libs.plugins.kotlin.plugin.serialization)
 }
 
+val commitHash = try {
+    "git rev-parse --short HEAD".runCommand()
+} catch (e: Exception) {
+    "unknown"
+}
+
 group = "com.example"
 version = "0.0.1"
 
@@ -12,8 +18,11 @@ application {
     mainClass = "io.ktor.server.netty.EngineMain"
 
     val isDevelopment: Boolean = project.ext.has("development")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+    applicationDefaultJvmArgs = listOf("-Dgit.commit.hash=$commitHash")
 }
+
+fun String.runCommand(): String =
+    Runtime.getRuntime().exec(this).inputStream.bufferedReader().readText().trim()
 
 repositories {
     mavenCentral()
