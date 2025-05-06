@@ -13,8 +13,6 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-COPY .git /app/.git
-
 # Copie a pasta gerada pela installDist
 COPY --from=builder /home/gradle/project/build/install /app
 
